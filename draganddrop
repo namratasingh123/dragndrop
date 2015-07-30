@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    #div1,#div2{
+        width: 400px;
+    height: 200px;
+        border: 1px solid black;
+    }
+    </style>
+    <script>
+    function drag(ev){
+      ev.dataTransfer.setData("text",ev.target.id);
+    }
+    function allowdrop(ev){
+        ev.preventDefault();
+        }
+    function drop(ev){
+     ev.preventDefault();
+     var data=ev.dataTransfer.getData("text");
+     ev.target.appendChild(document.getElementById(data));    
+    }    
+    
+    </script>
+   
+    </head>
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+    <img src="C:\Users\Accion\Desktop\flow.jpg" id="drag1" draggable="true" ondragstart="drag(event)" width="100px" height="75px">
+    <img src="C:\Users\Accion\Desktop\2015_tomorrowland-t1.jpg" id="drag2" draggable="true" ondragstart="drag(event)" width="100px" height="75px">
+    <img src="C:\Users\Accion\Desktop\image.jpg" id="drag3" draggable="true" ondragstart="drag(event)" width="100px" height="75px">
+  
+    </body>
+</html>
